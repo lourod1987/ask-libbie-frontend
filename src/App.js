@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { load_google_maps } from './GoogleMapsUtility';
+import { allResources } from './API-Data';
 import MainPage from './MainPage';
 import AddForm from './AddForm';
 import EditForm from './EditForm';
@@ -21,7 +22,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getResources();
+        // this.getResources();
+        this.parseResources();
     }
 
     getResources = () => {
@@ -30,14 +32,20 @@ class App extends Component {
         .then(resources => this.parseResources(resources))
     }
 
-parseResources = (resources) => {
+// parseResources = (resources) => {
+parseResources = () => {
 //   console.log(resources)
-  this.setState({
-    locations: resources
-  })
+//   this.setState({
+//     locations: resources
+//   })
 
+this.setState({
+    locations: allResources.resources
+  });
+ 
   let googleMapsPromise = load_google_maps();
-  let g = resources;
+//   let g = resources;
+  let g = allResources.resources;
 
   Promise.all([googleMapsPromise, g])
     .then(values => {
@@ -164,14 +172,16 @@ filter = query => {
     this.map.setCenter(marker.position);
     this.infowindow.open(this.map, marker);
     this.map.panBy(0, -125);
+    
 
     this.setState({ detailsID: selected.id });
-
+    
     if (this.state.detailsBool === true) {
-    this.setState({detailsBool: false});
+        this.setState({detailsBool: false});
     } else {
-    this.setState({detailsBool: true});
+        this.setState({detailsBool: true});
     }
+
     this.setState({editFormTest: marker.name});
 
     //animation for markers triggered by list item selection
@@ -192,7 +202,7 @@ filter = query => {
     fetch(`http://localhost:3000/api/v1/resources/${id}`)
             .then(res => res.json())
             .then(resource => this.setState({
-            editResource: resource
+                editResource: resource
             }))
     }
 
