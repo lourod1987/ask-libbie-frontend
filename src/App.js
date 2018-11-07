@@ -26,11 +26,11 @@ class App extends Component {
         this.parseResources();
     }
 
-    getResources = () => {
-        fetch('http://localhost:3000/api/v1/resources/')
-            .then(res => res.json())
-        .then(resources => this.parseResources(resources))
-    }
+    // getResources = () => {
+    //     fetch('http://localhost:3000/api/v1/resources/')
+    //         .then(res => res.json())
+    //     .then(resources => this.parseResources(resources))
+    // }
 
 // parseResources = (resources) => {
 parseResources = () => {
