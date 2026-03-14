@@ -13,15 +13,19 @@ export class MainHeader extends Component {
     const { toggleMenu } = this.props;
     return (
         <header>
-          <button aria-label="Menu" className="menu-button" onClick={() => toggleMenu()}>
-          {/* <div className="menuImg-credit">
-            Icons made by 
-            <a href="https://www.flaticon.com/authors/cole-bemis" title="Cole Bemis">Cole Bemis</a> 
-            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
-            is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC 3.0 BY</a>
-          </div> */}
-            <img src={menu} className="menu-icon" alt=""></img>
-          </button>
+          <div class="link-btns">
+            <a href="https://luisdev.netlify.app/" title="Back to Portfolio"><button id="backtohome">Back to Portfolio</button></a>
+          
+            <button aria-label="Menu" className="menu-button" onClick={() => toggleMenu()}>
+            {/* <div className="menuImg-credit">
+              Icons made by 
+              <a href="https://www.flaticon.com/authors/cole-bemis" title="Cole Bemis">Cole Bemis</a> 
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
+              is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC 3.0 BY</a>
+            </div> */}
+              <img src={menu} className="menu-icon" alt=""></img>
+            </button>
+          </div>
           <h1>Ask Libbie</h1>
           <Link to="/add-resource">
             <button className="add-resource-btn">

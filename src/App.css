@@ -14,7 +14,7 @@ header {
   display: grid;
   grid-template-columns: 80px 1fr 60px;
   background-color: #85cb33;
-  height: 60px;
+  height: 140px;
   width: 100vw;
 }
 
@@ -120,7 +120,7 @@ header h1 {
   max-width: 100%;
   height: calc(100vh - 60px);
   overflow-y: scroll;
-  top: 60px;
+  top: 140px;
 }
 
 .search {
@@ -247,4 +247,24 @@ ul {
   /* #sidebar {
     overflow-y: hidden;
   } */
+}
+
+#backtohome {
+  margin: 10px 20px;
+  color: whitesmoke;
+  background-color: #477dff;
+  font-size: 14px;
+  padding: 1.2rem;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 157px;
+}
+
+#backtohome:hover {
+  background-color: #477daa;
+}
+
+.link-btns {
+  display: flex;
+  flex-direction: column;
 }
